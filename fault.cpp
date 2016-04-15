@@ -89,7 +89,7 @@ void fault::analys_file(QString filename)
 
       test_netlist.open(QIODevice::WriteOnly);
       //QDataStream stream(&test_netlist);
-     // stream.setVersion(QDataStream::Qt_4_8);
+
 
 
 
