@@ -88,9 +88,6 @@ void fault::analys_file(QString filename)
     // Запись прочитанного нетлиста в файл test_netlist
 
       test_netlist.open(QIODevice::WriteOnly);
-      //QDataStream stream(&test_netlist);
-
-
 
 
 
@@ -99,17 +96,14 @@ void fault::analys_file(QString filename)
           if(netlist.at(i).type==0){
 
               test_netlist.write(netlist.at(i).net_string.toAscii());
-              //stream << netlist[i].net_string.toAscii();
+
           }
           else if(netlist.at(i).type==1){
               test_netlist.write(netlist.at(i).res.res_name.toAscii());
               test_netlist.write(netlist.at(i).res.node1.toAscii());
               test_netlist.write(netlist.at(i).res.node2.toAscii());
               test_netlist.write(netlist.at(i).res.nominal.toAscii());
-             // stream<< netlist[i].res.res_name.toAscii();
-             // stream<< netlist[i].res.node1.toAscii();
-             // stream<< netlist[i].res.node2.toAscii();
-             // stream << netlist[i].res.nominal.toAscii();
+
             }
         }
     in.close();
