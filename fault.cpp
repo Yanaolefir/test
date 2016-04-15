@@ -99,9 +99,9 @@ void fault::analys_file(QString filename)
 
           }
           else if(netlist.at(i).type==1){
-              test_netlist.write(netlist.at(i).res.res_name.toAscii());
-              test_netlist.write(netlist.at(i).res.node1.toAscii());
-              test_netlist.write(netlist.at(i).res.node2.toAscii());
+              test_netlist.write(netlist.at(i).res.res_name.toAscii()+" ");
+              test_netlist.write(netlist.at(i).res.node1.toAscii()+" ");
+              test_netlist.write(netlist.at(i).res.node2.toAscii()+" ");
               test_netlist.write(netlist.at(i).res.nominal.toAscii());
 
             }
