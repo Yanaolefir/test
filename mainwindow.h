@@ -26,7 +26,8 @@ private slots:
     void on_but_open_clicked();
     void on_but_model_clicked();
 
-    void on_save_netlist_clicked();
+
+    void on_but_choose_clicked();
 
 private:
     Ui::MainWindow *ui;

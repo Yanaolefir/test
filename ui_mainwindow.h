@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed 13. Apr 18:28:58 2016
+** Created: Wed 20. Apr 13:37:20 2016
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,7 +37,7 @@ public:
     fault *listWidget;
     QLabel *label;
     QPushButton *but_model;
-    QPushButton *save_netlist;
+    QPushButton *but_choose;
     QMenuBar *menuBar;
     QMenu *menu;
     QToolBar *mainToolBar;
@@ -70,9 +70,9 @@ public:
         but_model = new QPushButton(centralWidget);
         but_model->setObjectName(QString::fromUtf8("but_model"));
         but_model->setGeometry(QRect(530, 50, 111, 31));
-        save_netlist = new QPushButton(centralWidget);
-        save_netlist->setObjectName(QString::fromUtf8("save_netlist"));
-        save_netlist->setGeometry(QRect(530, 90, 111, 31));
+        but_choose = new QPushButton(centralWidget);
+        but_choose->setObjectName(QString::fromUtf8("but_choose"));
+        but_choose->setGeometry(QRect(80, 400, 121, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -104,7 +104,7 @@ public:
         but_open->setText(QApplication::translate("MainWindow", "\320\236\321\202\320\272\321\200\321\213\321\202\321\214 \321\204\320\260\320\271\320\273", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "              \320\241\320\277\320\270\321\201\320\276\320\272 \320\275\320\265\320\270\321\201\320\277\321\200\320\260\320\262\320\275\320\276\321\201\321\202\320\265\320\271", 0, QApplication::UnicodeUTF8));
         but_model->setText(QApplication::translate("MainWindow", "\320\234\320\276\320\264\320\265\320\273\320\270\321\200\320\276\320\262\320\260\320\275\320\270\320\265", 0, QApplication::UnicodeUTF8));
-        save_netlist->setText(QApplication::translate("MainWindow", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214 neltist", 0, QApplication::UnicodeUTF8));
+        but_choose->setText(QApplication::translate("MainWindow", "\320\222\321\213\320\261\320\276\321\200", 0, QApplication::UnicodeUTF8));
         menu->setTitle(QApplication::translate("MainWindow", "\320\244\320\260\320\271\320\273", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

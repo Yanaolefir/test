@@ -39,6 +39,7 @@ void fault::analys_file(QString filename)
 
 
 
+
     while (!in.atEnd())
     {
              line = in.readLine();
@@ -61,13 +62,15 @@ void fault::analys_file(QString filename)
 
                 QString zifr=field4.mid(0,sizer-2);                     // Численная часть номинала
                 QString bukv=field4.data()[sizer-1];                    // Буквенная часть номинала
-                //double nom=zifr.toDouble();                             // Численная часть в double
 
-
-                faults.push_back("Резистор " +field1+ " =1 Ом " );
+                //Печать неисправностей на экран
+                faults.push_back("Резистор " +field1+ " =1 kОм " );
                 faults.push_back("Резистор " +field1+ " =1 МОм " );
 
+
+
     // Занесение в структуру
+
                 resistor1.res_name=field1;
                 resistor1.node1=field2;
                 resistor1.node2=field3;
@@ -75,6 +78,7 @@ void fault::analys_file(QString filename)
 
     // Занесение структуры в список
                 netlist.append(netlist_string(resistor1));
+
                 continue;
                }
 
@@ -84,51 +88,59 @@ void fault::analys_file(QString filename)
             }
           }
 
-
-    // Запись прочитанного нетлиста в файл test_netlist
-
-      test_netlist.open(QIODevice::WriteOnly);
-
-
-
-      for (int i = 0;i<netlist.count();i++)
-      {
-          if(netlist.at(i).type==0){
-
-              test_netlist.write(netlist.at(i).net_string.toAscii());
-
-          }
-          else if(netlist.at(i).type==1){
-              test_netlist.write(netlist.at(i).res.res_name.toAscii()+" ");
-              test_netlist.write(netlist.at(i).res.node1.toAscii()+" ");
-              test_netlist.write(netlist.at(i).res.node2.toAscii()+" ");
-              test_netlist.write(netlist.at(i).res.nominal.toAscii());
-
-            }
-        }
     in.close();
-    test_netlist.close();
     this->addItems(faults);
     temp_result.setFileName("temp_result.txt");
     emit right_open(true);      // Все хорошо
 }
 
+void fault::res_fault(int number1)
 
-// Сохрание нетлиста
-void fault::print_netlist(QString filename)
 {
-    // Создаем файл результатов
-    QFile out(filename);
-    if (!out.open(QIODevice::WriteOnly|QIODevice::Truncate|QIODevice::Text))
-    {throw "Ошибка.Не удалось открыть файл результатов "+filename+" для записи.";}
+    int tmp1=0;
+    int tmp2=1;
+    test_netlist.open(QIODevice::WriteOnly);
 
-    out.write("");
-    foreach (QString temp, list) {
-        out.write(temp.toAscii());
-    }
-    out.write("");
-    out.close();
+    for (int i = 0;i<netlist.count();i++)
+    {
+        if(netlist.at(i).type==0)
+        {
+            test_netlist.write(netlist.at(i).net_string.toAscii());
+        }
+
+        else if(netlist.at(i).type==1){
+
+            if (number1==tmp1)
+            {
+                test_netlist.write(netlist.at(i).res.res_name.toAscii()+" ");
+                test_netlist.write(netlist.at(i).res.node1.toAscii()+" ");
+                test_netlist.write(netlist.at(i).res.node2.toAscii()+" ");
+                test_netlist.write("1k\n");
+
+            }
+
+           else if (number1==tmp2)
+            {
+                test_netlist.write(netlist.at(i).res.res_name.toAscii()+" ");
+                test_netlist.write(netlist.at(i).res.node1.toAscii()+" ");
+                test_netlist.write(netlist.at(i).res.node2.toAscii()+" ");
+                test_netlist.write("1m\n");
+            }
+            else
+            {
+                test_netlist.write(netlist.at(i).res.res_name.toAscii()+" ");
+                test_netlist.write(netlist.at(i).res.node1.toAscii()+" ");
+                test_netlist.write(netlist.at(i).res.node2.toAscii()+" ");
+                test_netlist.write(netlist.at(i).res.nominal.toAscii());
+            }
+
+            tmp1+=2;
+            tmp2+=2;
+          }
+      }
+    test_netlist.close();
 }
+
 
 // Моделирование
 bool fault::model()

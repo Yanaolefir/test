@@ -19,6 +19,7 @@
 using namespace std;
 
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -52,8 +53,16 @@ void MainWindow::on_but_model_clicked()
     ui->listWidget->model();
 }
 
-void MainWindow::on_save_netlist_clicked()
+
+void MainWindow::on_but_choose_clicked()
 {
-    ui->listWidget->print_netlist(fd.getSaveFileName(this,"Сохранить файл",QDesktopServices::storageLocation(QDesktopServices::HomeLocation)+"\\\\", "Netlist (*.net);; Все файлы (*.*)"));
+
+
+
+    int i=ui->listWidget->currentRow(); //Столбец нулевой
+    ui->listWidget->res_fault(i);
+
+
+
 
 }

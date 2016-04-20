@@ -14,11 +14,9 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    mean_forward.cpp \
     fault.cpp
 
 HEADERS  += mainwindow.h \
-    mean_forward.h \
     fault.h
 
 FORMS    += mainwindow.ui

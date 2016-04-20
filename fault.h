@@ -8,8 +8,9 @@
 #include <QVector>
 #include <QProcess>
 #include <RandC.h>
-#include "mean_forward.h"
+
 #include <QDebug>
+#include <qdebug.h>
 #include <QDataStream>
 
 // Структура описания тестового резистора
@@ -18,6 +19,7 @@ struct Res
 {
     Res(QString res_name="",QString node1="", QString node2="",QString nominal="")
     {
+
         this->res_name=res_name;
         this->node1=node1;
         this->node2=node2;
@@ -71,7 +73,9 @@ signals:
 public slots:
 
         void analys_file(QString filename);         // Первое открытие файла
-        void print_netlist(QString filename);
+
+        void res_fault(int number1);
+
 
 
 private:

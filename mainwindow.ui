@@ -69,17 +69,17 @@
      <string>Моделирование</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="save_netlist">
+   <widget class="QPushButton" name="but_choose">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>90</y>
-      <width>111</width>
-      <height>31</height>
+      <x>80</x>
+      <y>400</y>
+      <width>121</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Сохранить neltist</string>
+     <string>Выбор</string>
     </property>
    </widget>
   </widget>
