@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'fault.h'
 **
-** Created: Wed 13. Apr 18:29:09 2016
+** Created: Wed 20. Apr 13:37:58 2016
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -35,14 +35,15 @@ static const uint qt_meta_data_fault[] = {
 
  // slots: signature, parameters, type, tag, flags
       33,   24,    6,    6, 0x0a,
-      54,   24,    6,    6, 0x0a,
+      62,   54,    6,    6, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_fault[] = {
     "fault\0\0right_open(bool)\0filename\0"
-    "analys_file(QString)\0print_netlist(QString)\0"
+    "analys_file(QString)\0number1\0"
+    "res_fault(int)\0"
 };
 
 void fault::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -53,7 +54,7 @@ void fault::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         switch (_id) {
         case 0: _t->right_open((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 1: _t->analys_file((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 2: _t->print_netlist((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->res_fault((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }

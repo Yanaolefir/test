@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Tue 12. Apr 14:53:08 2016
+** Created: Wed 20. Apr 13:37:55 2016
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -43,7 +43,7 @@ static const uint qt_meta_data_MainWindow[] = {
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0on_open_triggered()\0"
     "on_exit_activated()\0on_but_open_clicked()\0"
-    "on_but_model_clicked()\0on_save_netlist_clicked()\0"
+    "on_but_model_clicked()\0on_but_choose_clicked()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -56,7 +56,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->on_exit_activated(); break;
         case 2: _t->on_but_open_clicked(); break;
         case 3: _t->on_but_model_clicked(); break;
-        case 4: _t->on_save_netlist_clicked(); break;
+        case 4: _t->on_but_choose_clicked(); break;
         default: ;
         }
     }
