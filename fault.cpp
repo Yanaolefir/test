@@ -2,6 +2,7 @@
 
 
 Res resistor1;
+Cap capacitor1;
 QString list;
 
 fault::fault(QWidget *parent) :
@@ -82,6 +83,37 @@ void fault::analys_file(QString filename)
                 continue;
                }
 
+            else if(first_letter=="C")
+            {
+                QString field2=line.section(' ',1,1);                   // Поле узел 1
+                QString field3=line.section(' ',2,2);                   // Поле узел 2
+                QString field4=line.section(' ',3,3);                   // Поле номинал с приставкой
+
+                int sizer=field4.size();                                // Кол-во символов в номинале
+
+                QString zifr=field4.mid(0,sizer-2);                     // Численная часть номинала
+                QString bukv=field4.data()[sizer-1];                    // Буквенная часть номинала
+
+                //Печать неисправностей на экран
+                faults.push_back("Конденсатор " +field1+ " =1 пФ " );
+                faults.push_back("Конденсатор " +field1+ " =1 Ф " );
+
+
+
+    // Занесение в структуру
+
+                capacitor1.cap_name=field1;
+                capacitor1.node1=field2;
+                capacitor1.node2=field3;
+                capacitor1.nominal=field4;
+
+    // Занесение структуры в список
+                netlist.append(netlist_string(capacitor1));
+
+                continue;
+
+            }
+
            else
             {
                 netlist.append(netlist_string(line));
@@ -137,6 +169,36 @@ void fault::res_fault(int number1)
             tmp1+=2;
             tmp2+=2;
           }
+        else if (netlist.at(i).type==2)
+        {
+            if (number1==tmp1)
+            {
+                test_netlist.write(netlist.at(i).cap.cap_name.toAscii()+" ");
+                test_netlist.write(netlist.at(i).cap.node1.toAscii()+" ");
+                test_netlist.write(netlist.at(i).cap.node2.toAscii()+" ");
+                test_netlist.write("1p\n");
+
+            }
+
+           else if (number1==tmp2)
+            {
+                test_netlist.write(netlist.at(i).cap.cap_name.toAscii()+" ");
+                test_netlist.write(netlist.at(i).cap.node1.toAscii()+" ");
+                test_netlist.write(netlist.at(i).cap.node2.toAscii()+" ");
+                test_netlist.write("1u\n");
+            }
+            else
+            {
+                test_netlist.write(netlist.at(i).cap.cap_name.toAscii()+" ");
+                test_netlist.write(netlist.at(i).cap.node1.toAscii()+" ");
+                test_netlist.write(netlist.at(i).cap.node2.toAscii()+" ");
+                test_netlist.write(netlist.at(i).cap.nominal.toAscii());
+            }
+
+            tmp1+=2;
+            tmp2+=2;
+
+        }
       }
     test_netlist.close();
 }

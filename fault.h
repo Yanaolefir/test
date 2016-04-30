@@ -29,9 +29,23 @@ struct Res
     QString res_name,node1,node2,nominal;
 };
 
+struct Cap
+{
+    Cap(QString cap_name="",QString node1="", QString node2="",QString nominal="")
+    {
+
+        this->cap_name=cap_name;
+        this->node1=node1;
+        this->node2=node2;
+        this->nominal=nominal;
+
+    }
+    QString cap_name,node1,node2,nominal;
+};
+
 enum TYPE_ELEMENT
 {
-    TE_STRING, TE_RESISTOR
+    TE_STRING, TE_RESISTOR, TE_CAPACITOR
 };
 
 struct netlist_string
@@ -47,9 +61,15 @@ struct netlist_string
         this->res=res;
         type=TE_RESISTOR;
     }
+    netlist_string(Cap cap)
+    {
+        this->cap=cap;
+        type=TE_CAPACITOR;
+    }
 
     QString net_string;
     Res res;
+    Cap cap;
 };
 
 class fault : public QListWidget

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed 20. Apr 13:37:20 2016
+** Created: Wed 20. Apr 16:46:05 2016
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -56,23 +56,23 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         but_open = new QPushButton(centralWidget);
         but_open->setObjectName(QString::fromUtf8("but_open"));
-        but_open->setGeometry(QRect(530, 10, 111, 31));
+        but_open->setGeometry(QRect(250, 40, 111, 31));
         listWidget = new fault(centralWidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
-        listWidget->setGeometry(QRect(30, 50, 221, 341));
+        listWidget->setGeometry(QRect(20, 40, 221, 361));
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(30, 20, 221, 20));
+        label->setGeometry(QRect(20, 10, 221, 20));
         QFont font;
         font.setBold(true);
         font.setWeight(75);
         label->setFont(font);
         but_model = new QPushButton(centralWidget);
         but_model->setObjectName(QString::fromUtf8("but_model"));
-        but_model->setGeometry(QRect(530, 50, 111, 31));
+        but_model->setGeometry(QRect(250, 120, 111, 31));
         but_choose = new QPushButton(centralWidget);
         but_choose->setObjectName(QString::fromUtf8("but_choose"));
-        but_choose->setGeometry(QRect(80, 400, 121, 23));
+        but_choose->setGeometry(QRect(250, 80, 111, 31));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
