@@ -209,7 +209,7 @@ bool fault::model()
 {
 
     QProcess prc;   // Моделируем netlist
-    prc.start("scad3.exe -run -b -ascii "+src_netlist.fileName());
+    prc.start("scad3.exe -run -b -ascii "+test_netlist.fileName());
     return prc.waitForFinished(60000);
 }
 
