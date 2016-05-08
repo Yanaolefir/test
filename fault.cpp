@@ -11,6 +11,7 @@ fault::fault(QWidget *parent) :
 
 }
 
+
 // Чтение и модификация исходного нетлиста
 void fault::analys_file(QString filename)
 {
@@ -213,5 +214,119 @@ bool fault::model()
     return prc.waitForFinished(60000);
 }
 
+
+// Получение сигнатуры
+
+void  fault::make_sign(QString filename)
+{
+  QFile in(filename);
+    if (!in.open(QIODevice::ReadOnly | QIODevice::Text))
+    {throw "Не удалось открыть файл результатов моделирования для чтения.";}
+
+    QMap<double, double> map;
+    QMap<double, double>::iterator it = map.begin();
+    QVector<double> vec;
+    QString line;
+
+    int type_an=0;
+    int pos_of_in=0;
+    int pos_of_out=0;
+    int no_var=1;
+
+    int i=0;
+    int k=1;
+    int m=0;
+    int z=0;
+    double temp=0;
+
+
+
+    while(!in.atEnd())
+    {
+
+        line=in.readLine();
+
+// Вырезаем необходимые поля
+        QString f1=line.section(' ',0,0);
+        QString f2=line.section(' ',1,1);
+        QString f3=line.section(' ',2,2);
+        QString f4=line.section(' ',3,3);
+        QString f5=line.section(' ',4,4);
+
+        QString l1=line.section('\t',0,0);
+        QString l2=line.section('\t',1,1);
+        QString l3=line.section('\t',2,2);
+
+
+
+// Выделяем номер строки со значениями параметров моделирования
+        if(f1!="Values:\n")
+            k++;
+        else
+            m=k+1;
+
+
+// Определяем тип моделирования
+        if (f2=="Transient")
+            type_an=1;
+        if (f2=="AC")
+            type_an=2;
+        if (f2=="DC")
+            type_an=3;
+
+//Получаем количество переменных
+        if(f1=="No." && f2=="Variables:")
+            no_var=f3.toInt();
+
+
+// Определяем номер позиции входа и выхода ()
+        if (type_an==3 && l2=="0")
+            pos_of_in=l2.toInt();
+
+        if (type_an==3 && l3=="V(out)")
+           pos_of_out=l2.toInt();
+
+
+        if(l1.toInt()==i)
+            temp=l3.toDouble();
+
+// Отсаток от деления (определяем номер строки в блоке)
+        int q1=(i+1-m)%no_var;
+
+        if(q1==0 && m>0)
+         {
+             vec.append(l3.toDouble());
+             qDebug()<<vec.last();
+
+         }
+         if (q1==1 && m>0)
+         {
+            vec.append(l2.toDouble());
+            qDebug()<<vec.last();
+         }
+       i++;
+    }
+
+// Заполняем map элементами vec
+
+    int vec_size=vec.size();
+    //qDebug()<<vec_size;
+    while (z<vec_size-2)
+    {
+        qDebug()<<vec.at(z)<<vec.at(z+1);  // Здесь все ок
+        map.insert(vec.at(z),vec.at(z+1)); // То есть заносить тоже должен нормально
+        z+=2;
+
+    }
+
+// Печать map (НЕ РАБОТАЕТ :(  )
+    while(it != map.end())
+    {
+       qDebug() << it.key() << " : " << it.value();
+       ++it;
+    }
+
+
+    }
 
 

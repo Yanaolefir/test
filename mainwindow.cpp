@@ -66,3 +66,13 @@ void MainWindow::on_but_choose_clicked()
 
 
 }
+
+void MainWindow::on_make_sign_triggered()
+{
+    ui->listWidget->make_sign(fd.getOpenFileName(this,"Открыть файл",QDesktopServices::storageLocation(QDesktopServices::HomeLocation)+"\\\\", "Raw (*.raw);; Все файлы (*.*)"));
+}
+
+void MainWindow::on_but_make_sign_clicked()
+{
+    ui->listWidget->make_sign(fd.getOpenFileName(this,"Открыть файл",QDesktopServices::storageLocation(QDesktopServices::HomeLocation)+"\\\\", "Raw (*.raw);; Все файлы (*.*)"));
+}

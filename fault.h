@@ -77,6 +77,7 @@ class fault : public QListWidget
     Q_OBJECT
 public:
     explicit fault(QWidget *parent = 0);
+
     bool model();             // Моделировать что и куда
 
 protected:
@@ -95,6 +96,7 @@ public slots:
         void analys_file(QString filename);         // Первое открытие файла
 
         void res_fault(int number1);
+        void make_sign(QString filename);
 
 
 

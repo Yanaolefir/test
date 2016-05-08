@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Wed 20. Apr 13:37:55 2016
+** Created: Sun 8. May 11:53:41 2016
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,6 +36,8 @@ static const uint qt_meta_data_MainWindow[] = {
       52,   11,   11,   11, 0x08,
       74,   11,   11,   11, 0x08,
       97,   11,   11,   11, 0x08,
+     121,   11,   11,   11, 0x08,
+     146,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -44,6 +46,8 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0on_open_triggered()\0"
     "on_exit_activated()\0on_but_open_clicked()\0"
     "on_but_model_clicked()\0on_but_choose_clicked()\0"
+    "on_make_sign_triggered()\0"
+    "on_but_make_sign_clicked()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -57,6 +61,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->on_but_open_clicked(); break;
         case 3: _t->on_but_model_clicked(); break;
         case 4: _t->on_but_choose_clicked(); break;
+        case 5: _t->on_make_sign_triggered(); break;
+        case 6: _t->on_but_make_sign_clicked(); break;
         default: ;
         }
     }
@@ -95,9 +101,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 7;
     }
     return _id;
 }

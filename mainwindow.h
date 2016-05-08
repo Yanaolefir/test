@@ -29,6 +29,10 @@ private slots:
 
     void on_but_choose_clicked();
 
+    void on_make_sign_triggered();
+
+    void on_but_make_sign_clicked();
+
 private:
     Ui::MainWindow *ui;
     QFileDialog fd;
