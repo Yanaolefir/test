@@ -1,7 +1,0 @@
-*C:\Program Files (x86)\LTC\LTspiceIV\Draft3.asc
-C1 Out N001 1,5u
-R1 Out 0 10k
-V1 N001 0 SINE(0 1 50) AC 1
-.ac dec 100 50 2000   
-.backanno
-.end
