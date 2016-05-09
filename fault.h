@@ -104,4 +104,5 @@ private:
         QList<netlist_string> netlist;
 };
 
+
 #endif // FAULT_H

@@ -11,7 +11,6 @@ fault::fault(QWidget *parent) :
 
 }
 
-
 // Чтение и модификация исходного нетлиста
 void fault::analys_file(QString filename)
 {
@@ -320,6 +319,7 @@ void  fault::make_sign(QString filename)
     }
 
 // Печать map (НЕ РАБОТАЕТ :(  )
+    it=map.begin();
     while(it != map.end())
     {
        qDebug() << it.key() << " : " << it.value();
