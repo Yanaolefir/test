@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->listWidget->setLstWgt2(ui->listWidget_2);
     QTextCodec::setCodecForCStrings(QTextCodec:: codecForName("CP1251"));
 }
 MainWindow::~MainWindow()

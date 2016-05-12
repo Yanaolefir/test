@@ -43,6 +43,7 @@ struct Cap
     QString cap_name,node1,node2,nominal;
 };
 
+
 enum TYPE_ELEMENT
 {
     TE_STRING, TE_RESISTOR, TE_CAPACITOR
@@ -67,9 +68,11 @@ struct netlist_string
         type=TE_CAPACITOR;
     }
 
+
     QString net_string;
     Res res;
     Cap cap;
+
 };
 
 class fault : public QListWidget
@@ -79,7 +82,7 @@ public:
     explicit fault(QWidget *parent = 0);
 
     bool model();             // Моделировать что и куда
-
+    void setLstWgt2(QListWidget *lstwgt2);
 protected:
     QFile src_netlist;                   // Исходный нетлист
     QFile test_netlist;                  // Тестовый нетлист
@@ -102,6 +105,7 @@ public slots:
 
 private:
         QList<netlist_string> netlist;
+        QListWidget *lst_wgt2;
 };
 
 
